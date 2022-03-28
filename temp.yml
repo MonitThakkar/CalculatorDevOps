@@ -1,0 +1,11 @@
+---
+- name: Deploy a java file
+  hosts:
+    localhost
+  remote_user: ubuntu
+  tasks:
+    - name: Copy java file to home directory
+      copy:
+        src: /home/monit/Desktop/Term2/SPE/DevOpsCalculator/src/main/java/calculator/Calculator.java
+        dest: /A/
+
