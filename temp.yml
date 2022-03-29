@@ -1,11 +1,14 @@
 ---
-- name: Deploy a java file
-  hosts:
-    localhost
-  remote_user: ubuntu
+- name: Pull docker image of Calculator
+  hosts: all
   tasks:
-    - name: Copy java file to home directory
-      copy:
-        src: /home/monit/Desktop/Term2/SPE/DevOpsCalculator/src/main/java/calculator/Calculator.java
-        dest: /A/
-
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+        
+    - name: pull docker image
+      shell: docker pull monitthakkar/devopscalc:7
+      
+    - name: running container
+      shell: docker run -it -d monitthakkar/devopscalc:7
