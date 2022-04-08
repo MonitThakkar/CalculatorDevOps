@@ -11,4 +11,5 @@
       shell: docker pull monitthakkar/devopscalc
       
     - name: running container
+      shell: sudo chmod 777 /var/run/docker.sock
       shell: docker run -it -d monitthakkar/devopscalc
