@@ -7,9 +7,11 @@
         name: docker
         state: started
         
+    - name: changing docker sock permission
+      shell: sudo chmod 777 /var/run/docker.sock
+      
     - name: pull docker image
       shell: docker pull monitthakkar/devopscalc
       
     - name: running container
-      shell: sudo chmod 777 /var/run/docker.sock
       shell: docker run -it -d monitthakkar/devopscalc
